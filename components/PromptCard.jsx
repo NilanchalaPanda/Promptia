@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { FaRegEdit } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+  const { data: session } = useSession();
+  const pathName = usePathname();
+
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -56,8 +61,20 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         className="font-inter text-sm blue_gradient cursor-pointer"
         onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
-        {post.tag}
+        #{post.tag}
       </p>
+
+      {/* AUTHORS OF THE PROMPTS */}
+      {session?.user.id === post.creator._id && pathName === "/profile" && (
+        <div className="mt-5 flex-center gap-4">
+          <p className="cursor-pointer copy_btn" onClick={handleEdit}>
+            <FaRegEdit color="#51a668" />
+          </p>
+          <p className="cursor-pointer" onClick={handleDelete}>
+            <MdDeleteOutline color="#8c0404" size={18} />
+          </p>
+        </div>
+      )}
     </div>
   );
 };
