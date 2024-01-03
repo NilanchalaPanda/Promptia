@@ -11,6 +11,8 @@ const handleAuth = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+
+  // SPECIFIC TO MY APPLICATION :
   callbacks: {
     async session({ session }) {
 

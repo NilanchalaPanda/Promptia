@@ -71,7 +71,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             <FaRegEdit color="#51a668" />
           </p>
           <p className="cursor-pointer" onClick={handleDelete}>
-            <MdDeleteOutline color="#8c0404" size={18} />
+            <MdDeleteOutline color="#ff2134" size={18} />
           </p>
         </div>
       )}
