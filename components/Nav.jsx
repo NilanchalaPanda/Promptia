@@ -31,7 +31,7 @@ const Nav = () => {
           height={50}
           className="object-contain"
         />
-        <h1 className="hidden md:block md:text-2xl md:font-bold">Promptia</h1>
+        <h1 className="hidden md:block md:text-2xl md:font-bold">PromptSphere</h1>  
       </Link>
 
       {/* {alert(providers)} */}
